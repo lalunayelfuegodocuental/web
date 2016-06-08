@@ -14,15 +14,83 @@
   <body>
 
     <header>
-      <div class="container">
-        <h1>La luna y el Fuego Documental</h1>
-        <h2>documental comunitario</h2>
+      <div>
+	<section class="fullsize-video-bg">
+	    <div class="inner">
+		   <div>
+			<h1>*NativÁmerica*</h1>
+            <p>La Luna y el Fuego</p>
+           </div>
+	    </div>
+        <div id="video-viewport">
+        	<video id="homevideo" width="100%" autoplay onended="run()">
+              <source src="video\LYF_1..mp4" type='video/mp4'/>
 
-        <section id="downloads">
+            </video>
+               <script> 
+                  video_count =1;
+                  videoPlayer = document.getElementById("homevideo");
+
+                  function run(){
+                         video_count++;
+                         if (video_count == 4) video_count = 1;
+                         var nextVideo = "video/LYF_1."+video_count+".mp4";
+                         videoPlayer.src = nextVideo;
+                         videoPlayer.play();};
+               </script>
+		 
+	   </div>
+    <section class="boton">
+     <button id="vidpause">Parar</button>
+            <script type="text/javascript">var vid = document.getElementById("homevideo"),
+           pauseButton = document.getElementById("vidpause");
+           function vidFade() {
+           vid.classList.add("stopfade");}
+        vid.addEventListener('ended', function() {
+        // only functional if "loop" is removed 
+         vid.pause();
+       // to capture IE10
+         vidFade();
+        });
+        pauseButton.addEventListener("click", function() {
+        vid.classList.toggle("stopfade");
+        if (vid.paused) {
+        vid.play();
+        pauseButton.innerHTML = "Parar";
+        } else {
+        vid.pause();
+        pauseButton.innerHTML = "Parado";}
+            })
+          </script> 
+    </section>
+    
+    <section class="info">
+
+       <div class="bg-info">
+        <h2> La Luna y el Fuego: Documental
+        </h2>
+        <h3>
+            El bla bla bla.....
+        </h3>
+
+       </div>
+       <div class="instrucciones">
+        <h2> Inserta tu video en el docuental
+        </h2>
+        <h3>
+            El bla bla bla.....
+        </h3>
+
+       </div>
+    </section>
+    
+</section>
+<section id="downloads">
           <a href="https://github.com/lalunayelfuegodocuental/web/zipball/master" class="btn">Download as .zip</a>
           <a href="https://github.com/lalunayelfuegodocuental/web/tarball/master" class="btn">Download as .tar.gz</a>
           <a href="https://github.com/lalunayelfuegodocuental/web" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
+        
       </div>
     </header>
 
